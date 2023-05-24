@@ -19,12 +19,12 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value="users")
+    @GetMapping(value="/users")
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value="users/{id}")
+    @GetMapping(value="/users/{id}")
     public ResponseEntity<Optional<User>> getUser(@PathVariable Long id) {
         return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
     }

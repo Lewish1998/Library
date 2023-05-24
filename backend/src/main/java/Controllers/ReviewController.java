@@ -19,12 +19,12 @@ public class ReviewController {
     @Autowired
     ReviewRepository reviewRepository;
 
-    @GetMapping(value = "reviews")
+    @GetMapping(value = "/reviews")
     public ResponseEntity<List<Review>> getAllReviews(){
         return new ResponseEntity<>(reviewRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "reviews/{id}")
+    @GetMapping(value = "/reviews/{id}")
     public ResponseEntity<Optional<Review>> getReview(@PathVariable Long id){
         return new ResponseEntity<>(reviewRepository.findById(id), HttpStatus.OK);
     }

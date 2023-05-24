@@ -18,13 +18,13 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
-    @GetMapping(value="books")
+    @GetMapping(value="/books")
     public ResponseEntity<List<Book>> getAllBooks() {
         return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
 
     }
 
-    @GetMapping(value="books/{id}")
+    @GetMapping(value="/books/{id}")
     public ResponseEntity<Optional<Book>> getBook(@RequestBody Long id){
         return new ResponseEntity<>(bookRepository.findById(id), HttpStatus.OK);
     }
