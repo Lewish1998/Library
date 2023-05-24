@@ -17,7 +17,7 @@ public class Book{
     @Column(name="author")
     private String author;
     @Column(name="genre")
-    private GenreType genre;
+    private List<GenreType> genre;
 
     @Column(name="synopsis")
     private String synopsis;
@@ -33,7 +33,7 @@ public class Book{
     private int number_available;
 
 
-    public Book(String title, String author, GenreType genre, String synopsis, String image, List<Review> reviews, int number_available){
+    public Book(String title, String author, List<GenreType> genre, String synopsis, String image, List<Review> reviews, int number_available){
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -70,13 +70,6 @@ public class Book{
         this.author = author;
     }
 
-    public GenreType getGenre() {
-        return genre;
-    }
-
-    public void setGenre(GenreType genre) {
-        this.genre = genre;
-    }
 
     public String getSynopsis() {
         return synopsis;
@@ -113,4 +106,17 @@ public class Book{
     public void addReview(Review review){
         this.reviews.add(review);
     }
+
+    public List<GenreType> getGenre() {
+        return genre;
+    }
+
+    public void setGenre(List<GenreType> genre) {
+        this.genre = genre;
+    }
+
+    public void addGenre(GenreType genre) {
+        this.genre.add(genre);
+    }
+
 }

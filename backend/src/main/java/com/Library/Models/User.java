@@ -18,11 +18,9 @@ public class User {
     private String password;
     @Column (name="address")
     private String address;
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-            name="borrowing",
-            inverseJoinColumns = {@JoinColumn(name="book_id")}
-    )
+
+    @Column(name="borrowing")
+    @OneToMany(targetEntity = Book.class)
     private List<Book> borrowing;
 
 
@@ -84,7 +82,7 @@ public class User {
         return borrowing;
     }
 
-    public void setBorrowing(List<Book> borrowing) {
-        this.borrowing = borrowing;
+    public void addBook(Book book){
+        this.borrowing.add(book);
     }
 }

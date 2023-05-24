@@ -1,6 +1,7 @@
 package com.Library.Models;
 
 public enum GenreType {
+    FICTION,
     DRAMA,
     COMEDY,
     HORROR,
@@ -11,5 +12,6 @@ public enum GenreType {
     ACTION,
     THRILLER,
     LGBTQ,
+    DYSTOPIAN,
 
 }
