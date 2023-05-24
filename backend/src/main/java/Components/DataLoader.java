@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Profile("!test")
+@Profile("!Test")
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -28,7 +28,7 @@ public class DataLoader implements ApplicationRunner {
     private ReviewRepository reviewRepository;
 
     @Override
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) throws Exception{
 
         Review review1 = new Review("A classic for a reason", "Roberta Small", 5);
         reviewRepository.save(review1);

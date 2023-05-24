@@ -7,8 +7,9 @@ import java.util.List;
 @Table (name="users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
     @Column (name="name")
     private String name;
     @Column (name = "email")
@@ -34,6 +35,14 @@ public class User {
     public User() {
     }
 
+    public Long getId(){
+        return this.id;
+
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
 
     public String getName() {
         return name;

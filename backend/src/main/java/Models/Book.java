@@ -1,16 +1,17 @@
 package Models;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Entity
 @Table(name="books")
-public class Book {
+public class Book{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     @Column(name="title")
     private String title;
     @Column(name="author")
@@ -30,8 +31,6 @@ public class Book {
     @Column (name="available")
     private int number_available;
 
-    public Book() {
-    }
 
     public Book(String title, String author, GenreType genre, String synopsis, String image, List<Review> reviews, int number_available){
         this.title = title;
@@ -42,6 +41,16 @@ public class Book {
         this.reviews = reviews;
         this.number_available = number_available;
 
+    }
+    public Book() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

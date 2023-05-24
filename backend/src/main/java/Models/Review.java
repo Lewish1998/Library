@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Table (name="reviews")
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
     @Column (name="review")
     private String review;
     @Column(name="author")
@@ -22,6 +23,14 @@ public class Review {
     }
 
     public Review() {
+    }
+
+    public Long getId(){
+        return this.id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
     public String getReview() {
         return review;

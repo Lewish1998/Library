@@ -21,9 +21,7 @@ class LibraryApplicationTests {
 
 	@Test
 	void contextLoads() {
-
 	}
-
 
 	@Test
 	public void getNumberOfBooks() {
