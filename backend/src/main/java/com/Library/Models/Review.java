@@ -1,4 +1,4 @@
-package Models;
+package com.Library.Models;
 
 import jakarta.persistence.*;
 
@@ -9,6 +9,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
+
     @Column (name="review")
     private String review;
     @Column(name="author")
@@ -16,10 +17,18 @@ public class Review {
     @Column(name="rating")
     private int rating;
 
-    public Review(String review, String author, int rating){
+    @JoinTable(
+            name="books",
+            joinColumns = {@JoinColumn(name="id")}
+    )
+    private Long book_id;
+
+
+    public Review(String review, String author, int rating, Long book_id){
         this.review = review;
         this.author = author;
         this.rating = rating;
+        this.book_id = book_id;
     }
 
     public Review() {
@@ -29,9 +38,6 @@ public class Review {
         return this.id;
     }
 
-    public void setId(Long id){
-        this.id = id;
-    }
     public String getReview() {
         return review;
     }
@@ -54,5 +60,13 @@ public class Review {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public Long getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(Long book_id) {
+        this.book_id = book_id;
     }
 }

@@ -1,4 +1,4 @@
-package Models;
+package com.Library.Models;
 
 import jakarta.persistence.*;
 
@@ -26,6 +26,7 @@ public class Book{
     private String image;
 
     @Column (name="reviews")
+    @OneToMany(targetEntity = Review.class)
     private List<Review> reviews;
 
     @Column (name="available")

@@ -1,4 +1,4 @@
-package Models;
+package com.Library.Models;
 
 public enum GenreType {
     DRAMA,

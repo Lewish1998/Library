@@ -1,7 +1,6 @@
-package Repositories;
+package com.Library.Repositories;
 
-import Models.Review;
-import Models.User;
+import com.Library.Models.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

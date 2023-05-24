@@ -1,4 +1,4 @@
-package Models;
+package com.Library.Models;
 
 import jakarta.persistence.*;
 
@@ -18,7 +18,11 @@ public class User {
     private String password;
     @Column (name="address")
     private String address;
-    @Column (name="borrowing")
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name="borrowing",
+            inverseJoinColumns = {@JoinColumn(name="book_id")}
+    )
     private List<Book> borrowing;
 
 

@@ -1,7 +1,7 @@
-package Controllers;
+package com.Library.Controllers;
 
-import Models.Book;
-import Repositories.BookRepository;
+import com.Library.Models.Book;
+import com.Library.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

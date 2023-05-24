@@ -1,10 +1,9 @@
-package Controllers;
+package com.Library.Controllers;
 
-import Models.User;
-import Repositories.UserRepository;
+import com.Library.Models.User;
+import com.Library.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
