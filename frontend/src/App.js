@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import HomepageContainer from './Containers/HomepageContainer';
+import {getBooks} from './helpers/BookService.js'
+
+
 
 function App() {
+
+  const [books, setBooks] = useState([]);
+
+
+  const handleFetchBooks = () => {
+    getBooks().then(res => res.json())
+    .then(data => setBooks(data))
+    console.log(books)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HomepageContainer />
+      <button onClick={handleFetchBooks}></button>
     </div>
   );
 }
